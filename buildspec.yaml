@@ -11,8 +11,6 @@ phases:
    build:
     commands:
       - echo Build started on 'date' 
-      - mvn test
-      - mvn install
       - echo Building the Docker image...
       - docker login -u srilekhak005 -p Dakshya@2020
       - docker build -t $REPOSITORY_URI:latest .
