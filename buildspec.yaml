@@ -22,7 +22,7 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
-      #- aws ecs update-service --service dev-nginx --force-new-deployment --cluster test-pipeline-ecs1
+      - aws ecs update-service --service dev-nginx --force-new-deployment --cluster test-pipeline-ecs1
       - echo Writing image definitions file...
       - printf '[{"name":"dev-nginx","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
