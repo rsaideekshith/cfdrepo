@@ -5,7 +5,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
-      - REPOSITORY_URI=406067944890.dkr.ecr.ap-south-1.amazonaws.com/code-pipeline
+      - REPOSITORY_URI=406067944890.dkr.ecr.ap-south-1.amazonaws.com/dev-nginx
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - echo $COMMIT_HASH
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
